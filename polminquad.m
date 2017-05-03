@@ -54,7 +54,7 @@ endfor;
 
 norm2_res = norm( AA*coeff - y, 2)
 for i = 1:n
-plot(x(i),y(i)); hold on
+  plot(x(i),y(i)); hold on
 endfor;
 coeff = flip(coeff); %posar els coeficients en ordre
 d = [min(x)-10:0.1:max(x)+10]; f = polyval(coeff,d);
