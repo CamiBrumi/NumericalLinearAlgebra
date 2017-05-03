@@ -35,7 +35,7 @@ for i = 1:m
   endfor;
 endfor;
 
-%ara farem la substitucio enrera per resoldre el sistema R*coeff = Q'*y
+%ara farem la substitucio enrera per resoldre el sistema R*coeff = Q'*y (equivalent a resoldre A'A*coeff = A'y )
 b = (Q')*y;
 coeff = zeros(m,1);
 
@@ -52,10 +52,12 @@ for k = 1:m
   coeff(i) = (b(i) - acum )/R(i,i);
 endfor;
 
-norm2_res = norm( A*coeff - y, 2)
+norm2_res = norm( AA*coeff - y, 2)
 for i = 1:n
-plot(x(i),y(i),[-7,7], [-7,7]); hold on
+plot(x(i),y(i)); hold on
 endfor;
-plot(x,polyval(coeff,x));
+coeff = flip(coeff); %posar els coeficients en ordre
+d = [min(x)-10:0.1:max(x)+10]; f = polyval(coeff,d);
+plot(d, f); hold off
 endfunction;
 
