@@ -31,7 +31,7 @@ for i = 1:m
   Q(:,i)=A(:,i)/R(i,i); %NORMALITZEM LA COLUMNA i-essima
   for j = i+1:m %bucle per ortogonalitzar la resta de columnes de A respecte Q(:,i)
     R(i,j)=dot(Q(:,i),A(:,j)); %producte escalar de la fila j-essima de A amb la columna nova de Q
-    A(:,j)=A(:,j)-R(i,j)*Q(:,i) %nova columna de A
+    A(:,j)=A(:,j)-R(i,j)*Q(:,i); %nova columna de A
   endfor;
 endfor;
 

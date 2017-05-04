@@ -8,8 +8,8 @@ rrec = 1./r;
 cosphi = -cos(phi_rad);
 
 [coeff, res] = polminquad(cosphi, rrec, 1);
-p = 1/coeff(2)
-e = coeff(1)*p
+p = 1/coeff(2);
+e = coeff(1)*p;
 
  [x, y] = pol2cart( phi_rad, r);
 for i = 1:5
@@ -17,7 +17,7 @@ for i = 1:5
 endfor;
 
 d = [0:0.1:2*pi];
-fd = p./(1-e.*cos(d));
+fd = p./(1+e.*cos(d));
 [d,fd] = pol2cart(d,fd);
 
 plot (d, fd);
@@ -26,27 +26,7 @@ plot (d, fd);
 
 %anem a fer l'aproximacio per polinomis
 
-[coeff2, res2] = polminquad(phi_rad, r, 3); %se'ns fa una grafica nova, com arreglar
 
-d = [phi_rad(1):0.1:phi_rad(5)]
-fd = polyval(coeff,d);
-
-[d,fd] = pol2cart(d,fd);
-for i = 1:5
-  plot(x(i), y(i)); hold on
-endfor;
-plot (d, fd); hold off
-
-[coeff2, res2] = polminquad(phi_rad, r, 4);
-
-d = [phi_rad(1):0.1:phi_rad(5)]
-fd = polyval(coeff,d);
-
-[d,fd] = pol2cart(d,fd);
-for i = 1:5
-  plot(x(i), y(i)); hold on
-endfor;
-plot (d, fd); hold off
 
 
 
