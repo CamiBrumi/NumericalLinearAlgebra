@@ -34,6 +34,13 @@ for i = 1:m
     A(:,j)=A(:,j)-R(i,j)*Q(:,i); %nova columna de A
   endfor;
 endfor;
+%--------------------------Coseta afegida------------------------------
+% DIGAM QUE HI HA UN PROBLEMA EN EL ALGORISME DE LA QR QUE FA CANVIAR TOT DE SIGNE(ho he comprovat amb la qr del octave)
+%disp('qr de verdad') << pots provar-ho tu tmb, és divertidissim!!
+%[Q,R] = qr(A)
+Q = -Q;
+R = -R;
+%----------------------------------------------------------------------
 
 %ara farem la substitucio enrera per resoldre el sistema R*coeff = Q'*y (equivalent a resoldre A'A*coeff = A'y )
 b = (Q')*y;
