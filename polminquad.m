@@ -10,8 +10,8 @@ if ( 0 > m || m > n)
   endif;
   
 
-for i = 1:m+1;
-  A(:,i)=x.^(i-1);
+for i = 1:m+1; % teniem A(:,i)=x.^(i-1);
+  A(:,i)=x.^(m+1-i);
 endfor;
 
 
@@ -34,37 +34,32 @@ for i = 1:m
     A(:,j)=A(:,j)-R(i,j)*Q(:,i); %nova columna de A
   endfor;
 endfor;
-%--------------------------Coseta afegida------------------------------
-% DIGAM QUE HI HA UN PROBLEMA EN EL ALGORISME DE LA QR QUE FA CANVIAR TOT DE SIGNE(ho he comprovat amb la qr del octave)
-%disp('qr de verdad') << pots provar-ho tu tmb, és divertidissim!!
-%[Q,R] = qr(A)
-Q = -Q;
-R = -R;
-%----------------------------------------------------------------------
 
-%ara farem la substitucio enrera per resoldre el sistema R*coeff = Q'*y (equivalent a resoldre A'A*coeff = A'y )
-b = (Q')*y;
-coeff = zeros(m,1);
+
 
 disp("La norma sub-infinit ||Q'Q - Id || es:")
 N = Q'*Q - eye(m);
 disp(norm( N, Inf))
 
+%ara farem la substitucio enrera per resoldre el sistema R*coeff = Q'*y (equivalent a resoldre A'A*coeff = A'y )
+b = (Q')*y;
+coeff = zeros(m,1);
+
 for k = 1:m
   i = (m - k)+1;
   acum = 0;
-  for j = k:m
-  acum = acum + R(i,j)*coeff(j);
+  for j = i:m
+    acum = acum + R(i,j)*coeff(j);
   endfor;
   coeff(i) = (b(i) - acum )/R(i,i);
-endfor;
+endfor
+
 
 norm2_res = norm( AA*coeff - y, 2)
 for i = 1:n
   plot(x(i),y(i)); hold on
 endfor;
-coeff = flip(coeff); %posar els coeficients en ordre
-d = [min(x)-10:0.1:max(x)+10]; f = polyval(coeff,d);
-plot(d, f); hold off
+d = [min(x)-1:0.1:max(x)+1]; f = polyval(coeff,d);
+set(gca, "title", text("string","Aproximacio per minims quadrats (polminquad.m)","fontsize", 15));
+plot(d, f, "linewidth", 1.5); hold off
 endfunction;
-
