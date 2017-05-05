@@ -23,25 +23,25 @@ int pivotatge_parcial(double **a, int n, double tol, const int k) {
     //PRE: a té la matriu, int mida de la matriu, k pas de l'eliminació
     double maxs_fila_i [n - k];
 	for(int i = k; i < n; ++i) {
-			double max_fila = abs(a[i][k]);
+			double max_fila = fabs(a[i][k]);
 			for(int j = k + 1; j < n; ++j) { // busquem el màxim (en valor absolut) de la fila i-èssima
-				max_fila = max(max_fila, abs(a[i][j]));
+				max_fila = max(max_fila, fabs(a[i][j]));
 			}
             maxs_fila_i[i - k] = max_fila;
 	}
 	
 	
-    maxs_fila_i[0] = abs(a[k][k])/maxs_fila_i[k];
+    maxs_fila_i[0] = fabs(a[k][k])/maxs_fila_i[0];
 	double max_col = maxs_fila_i[0];
     int max_pos = k;
     for(int i = 1; i < n - k; ++i){ //iterem sobre el vector de màxims
-        maxs_fila_i[i] = abs(a[k + i][ k ])/maxs_fila_i[i]; //convertim el vector de maxims per la fila en vector de pivots divits per màxim de la seva fila
-        if ( max_col < maxs_fila_i[i] ) {
+        maxs_fila_i[i] = fabs(a[k + i][ k ])/maxs_fila_i[i]; //convertim el vector de maxims per la fila en vector de pivots divits per màxim de la seva fila
+        if ( fabs(max_col - maxs_fila_i[i]) > tol and max_col < maxs_fila_i[i]) {
             max_col = maxs_fila_i[i];
             max_pos = k + i;          
         }        
     }
-    if(abs(a[max_pos][k]) < tol) return -1; // retornem -1 perquè la funcio pivotatge_parcial retorna la posició del pivot. La posició mai pot ser un nombre negatiu.
+    if(fabs(a[max_pos][k]) < tol) return -1; // retornem -1 perquè la funcio pivotatge_parcial retorna la posició del pivot. La posició mai pot ser un nombre negatiu.
 	
 	return max_pos; 
 	//ja hem trobat el màxim, retornem la seva fila, per tornar a la funció lu,
