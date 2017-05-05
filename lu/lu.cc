@@ -27,6 +27,7 @@ int pivotatge_parcial(double **a, int n, double tol, const int k) {
 			for(int j = k + 1; j < n; ++j) { // busquem el màxim (en valor absolut) de la fila i-èssima
 				max_fila = max(max_fila, fabs(a[i][j]));
 			}
+            if (fabs(max_fila) < tol) return -1;
             maxs_fila_i[i - k] = max_fila;
 	}
 	
