@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Pràctica 3 ALN: Mínims quadrats}
+\author{Camelia Brumar & Leonor Lamsdorff-Galagane}
+\date{08 May 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{La demostració de que $p_{M}(x)$ és el polinomi “òptim”}
+Demostració que la projecció ortogonal és mínima (parèntesi en text)
+$$ \left(parentesi en una equacio \right) $$
+$$ \frac{numerador}{denominador} $$
+$$ \pi \tau \sum_1^n$$
+
+
+\section{Justificació del mètode}
+A continuació justificarem el mètode utilitzat per trobar les solucions de les equacions normals i l'explicarem breument.
+
+En aquesta pràctica hem utilitzat els mètodes d'ortogonalització, que aconsegueixen la reducció a forma triangular mitjançant l'ús de matrius ortogonals. Aquests mètodes estan basats en la descomposició $QR$ de matrius. Com en els mètodes gaussians, s'observen dues parts en el procés d'ortogonalització:
+
+\begin{itemize}
+  \item En la primera, es factoritza A en la forma:
+  $$ A =  QR, $$
+  on $Q$ és ortogonal i $R$ triangular superior.
+  \item En la segona, s'acaba la resolució del sistema $Ax = QRx = b$, resolent el sistema triangular superior $Rx = Q^\top b$ pel mètode de substitució cap enrere. Arribem a aquest sistema senzill seguint els següents passos: 
+  $$A^\top Ax = A^\top b \;,$$
+  com que $A = QR$
+  $$\left(QR \right)^\top QRx = \left(QR \right)^\top b$$
+  $$R^\top Q^\top  QRx = R^\top Q^\top  b$$
+  sabent que $Q$ és una matriu ortogonal, i.e, $Q^\top =\ Q^{-1}$, obtenim
+  $$R^\top Rx = R^\top Q^\top  b$$
+  i finalment multipliquem per la inversa de $R^\top$ a les dues bandes de la igualtat, aconseguint el sistema
+  $$Rx = Q^\top b \; .$$
+\end{itemize}
+
+Aquesta factorització l'hem realitzat amb el mètode d'ortogonalització mo\-di\-fi\-cat de Gram-Schmidt.\newline
+
+\newline
+\textbf{Mètode d'ortogonalització modificat de Gram-Schmidt} \newline
+Començant amb $A_{1} = A$, una vegada coneguda
+$$A_{k} = \left(q_{1}\: \ldots{}\: q_{k-1}\: a_{k}^{(k)}\: \ldots{} \:a_{n}^{(k)} \right)$$
+
+amb columnes $q_{j}\;\left(j = 1 \div k - 1  \right)$ i $a_{s}^{(k)}\, \left(s = k \div n \right)$ complint amb les relacions d'ortogonalitat
+$$q_{j}^\top q_{l} = \delta_{jl},\; q_{j}^\top a_{s} = 0\, \left(j, l = 1 \div k-1,\, s = k \div n \right),$$
+es normalitza la $k$-èssima columna i s'ortogonalitzen, respecte a ella, totes les que la segueixen:
+$$r_{kk} = \left| \left|\; a_{k}^{(k)}\; \right| \right|_{2}, \; q_{k} = \frac{a_{k}^{(k)}}{r_{kk}}\;; $$ 
+$$r_{ks} = q_{k}^\top a_{s}^{(k)}\; , \; \; a_{s}^{(k+1)} = a_{s}^{(k)} - r_{ks}q_{k} \; \; \left( s = k+1 \div n \right) .$$
+S'obté
+$$A_{k+1} = \left( q_{1} \; \ldots{} \; q_{k} \; a_{k+1}^{(k+1)} \; \ldots{} \; a_{n}^{(k+1)} \right) \; ,$$
+
+verificant les mateixes condicions d'ortogonalitat anteriors, substituint $k$ per $k+1 \; \left( k = 1 \div n \right).$ \newline
+Després de $n$ passos,
+$$A_{n+1} = \left(q_{1} \; q_{2} \ldots{} q_{n} \right)$$
+és una matriu ortogonal perquè $q_{j}^{T}q_{l} = \delta_{jl} \; \left( j, l = 1 \div n \right).$ \newline
+\newline
+Les matrius $Q = A_{n+1}$ i $R = r_{(ks)}$ formen una factorització $QR$ de $A$.
+\end{document}
