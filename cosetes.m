@@ -8,7 +8,7 @@ phi_rad = phi.*(pi/180);
 p = 1/coeff(2);
 e = coeff(1)*p;
 
- [x, y] = pol2cart( phi_rad, r);
+[x, y] = pol2cart( phi_rad, r);
 for i = 1:5
   plot(x(i), y(i)); hold on
 endfor;
