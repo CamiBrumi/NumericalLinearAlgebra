@@ -14,7 +14,7 @@ e = coeff(1)*p;
  [x, y] = pol2cart( phi_rad, r);
 figure(1);
 for i = 1:5
-  plot(x(i), y(i)); hold on
+  plot(x(i), y(i), "color", 'r'); hold on
 endfor;
 
 d = [0:0.1:2*pi];
@@ -22,8 +22,6 @@ fd = p./(1+e.*cos(d));
 [d,fd] = pol2cart(d,fd);
 set(gca, "title", text("string","Orbita aproximada amb parametres de l'equacio d'una conica.","fontsize", 15));
 plot(d, fd, "linewidth", 1.5); hold off
-
-%fins aqui funciona tot :)
 
 %APROXIMACIÓ DE GRAU 3
 
@@ -33,7 +31,7 @@ figure(2);
 figure(3);
 [x, y] = pol2cart( phi_rad, r); 
 for i = 1:5
- plot(x(i), y(i)); hold on %graficar els punt que hem d'aproximar
+ plot(x(i), y(i), "color", 'r'); hold on %graficar els punt que hem d'aproximar
 endfor;
 d = [phi_rad(1):0.05:phi_rad(5)]; %donar un domini al polinomi resultant del proces de minims quadrats
 fd = polyval(coeff2,d);
@@ -49,20 +47,10 @@ figure(4);
 figure(5);
 [x, y] = pol2cart( phi_rad, r); 
 for i = 1:5
- plot(x(i), y(i)); hold on %graficar els punt que hem d'aproximar
+ plot(x(i), y(i), "color", 'r'); hold on %graficar els punt que hem d'aproximar
 endfor;
 d = [phi_rad(1):0.05:phi_rad(5)]; %donar un domini al polinomi resultant del proces de minims quadrats
 fd = polyval(coeff3,d);
 [x,y] = deal(fd.*cos(d), fd.*sin(d));
 set(gca, "title", text("string","Orbita aproximada amb polinomi de grau 4 (coord. cartesianes)","fontsize", 15));
 plot(x, y, "linewidth", 1.5); hold off
-
-
-
-
-%APROXIMACIÓ DE GRAU 4
-
-
-
-
-

@@ -41,12 +41,60 @@ Si prenem $ F = [u_1, ... , u_n ] $ com el sev generat per les columnes de A, ob
 $x^*$  minimitza la norma $ \| Ax - b \| \iff Ax^* = \pi_F\left(b\right)$, pel resultat anterior. Però a la vegada, $ Ax^* = \pi_F\left(b\right) \iff <u_i, Ax^*> \hspace{0.2cm} =  \hspace{0.2cm}<u_i,b> \forall i = 1\div n$ (caracterització coneguda de la projecció ortogonal). Per últim, $$  <u_i, Ax^*> \hspace{0.2cm} =  \hspace{0.2cm}<u_i,b> \forall i = 1\div n \iff A^\top Ax^*= A^\top b $$
 
 
+<<<<<<< HEAD
+\textbf{Conclusió}: les solucions del sistema $  A^\top Ax= A^\top b $ minimitzen la norma $ \| Ax - b \|. \hfill \square$ \newline
+
+Aleshores, si volem trobar un polinomi de grau $m$ que aproximi  uns vectors de punts $ x = \left(x_0,...,x_n\right) $ i $y = \left(y_0...,y_n\right)$, estem buscant un polinomi $a_0x^m+a_1x^{m-1}+...+a_{m-1}x^1+a_{m}$ que satisfaci:
+$$ a_0x_{0}^{m}+a_1x_{0}^{m-1}+...+a_{m-1}x_{0}^1+a_{m} = y_0 $$
+$$ a_0x_{1}^{m}+a_1x_{1}^{m-1}+...+a_{m-1}x_{1}^1+a_{m} = y_1 $$
+$$...$$
+$$ a_0x_{n}^{m}+a_1x_{n}^{m-1}+...+a_{m-1}x_{n}^1+a_{m} = y_n $$
+
+Matricialment, equival a resoldre el sistema
+
+$$
+\label{def:matriu:A}
+\left(
+\begin{array}{ccccccc}
+x_{0}^{m}   &  x_{0}^{m-1}  &   \dots    & x_{0}^1        &    1 \\
+x_{1}^{m}   &  x_{1}^{m-1}  &   \dots    & x_{1}^1        &    1 \\
+ \vdots  &  \vdots  &  \vdots   &     \vdots    &     \vdots \\
+x_{n}^{m}   &  x_{n}^{m-1}  &   \dots    & x_{n}^1        &    1 \\
+\end{array}
+\right)
+\left(
+\begin{array}{ccccccc}
+a_{0} \\
+a_{1} \\
+ \vdots \\
+a_{m}  \\
+\end{array}
+\right)=
+\left(
+\begin{array}{ccccccc}
+y_{0} \\
+y_{1} \\
+ \vdots \\
+y_{n}  \\
+\end{array}
+\right)
+$$
+
+Com, en general, $m < n$, no hi ha solució, però gràcies als apartats anteriors sabem que el polinomi $a_0^*x^m+a_1^*x^{m-1}+...+a_{m-1}^*x^1+a_{m}^*$ obtingut com a solució de les equacions normals és el que minimitza la norma $ \| Ax - b \|$.
+=======
 \textbf{Conclusió}: les solucions del sistema $  A^\top Ax= A^\top b $ minimitzen la norma $ \| Ax - b \|. \hfill \square$
+>>>>>>> a9a7a1ff7a1a3a5602840584e810db5b67362c06
 
 \section{Justificació del mètode}
 A continuació justificarem el mètode utilitzat per trobar les solucions de les equacions normals i l'explicarem breument.
 
+<<<<<<< HEAD
+En aquesta pràctica hem utilitzat els mètodes d'ortogonalització, que aconsegueixen la reducció a forma triangular mitjançant l'ús de matrius ortogonals. Aquests mètodes estan basats en la descomposició $QR$ de matrius. Hem triat aquests mètodes perquè respecte d'altres, com Cholesky (si la matriu A és simètrica) o $LU$, presenta certs avatatges. Per una banda, en fer Cholesky, s'haurien de resoldre dos sistemes lineals (a més d'altres càlculs anteriors), mentre que en fer $QR$ només hem de resoldre un sistema triangular superior. Per altra banda, en comparar la $QR$ amb la $LU$, la primera és molt més estable en quant als errors respecte la segona, tot i que és més ineficient pel que fa el temps computacional.
+
+Com en els mètodes gaussians, s'observen dues parts en el procés d'ortogonalització:
+=======
 En aquesta pràctica hem utilitzat els mètodes d'ortogonalització, que aconsegueixen la reducció a forma triangular mitjançant l'ús de matrius ortogonals. Aquests mètodes estan basats en la descomposició $QR$ de matrius. Com en els mètodes gaussians, s'observen dues parts en el procés d'ortogonalització:
+>>>>>>> a9a7a1ff7a1a3a5602840584e810db5b67362c06
 
 \begin{itemize}
   \item En la primera, es factoritza A en la forma:

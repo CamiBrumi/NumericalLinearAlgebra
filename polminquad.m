@@ -54,10 +54,9 @@ for k = 1:m
   coeff(i) = (b(i) - acum )/R(i,i);
 endfor
 
-
-norm2_res = norm( AA*coeff - y, 2)
+norm2_res = norm( AA*coeff - y, 2);
 for i = 1:n
-  plot(x(i),y(i)); hold on
+  plot(x(i),y(i), "color", 'r'); hold on
 endfor;
 d = [min(x)-1:0.1:max(x)+1]; f = polyval(coeff,d);
 set(gca, "title", text("string","Aproximacio per minims quadrats (polminquad.m)","fontsize", 15));
