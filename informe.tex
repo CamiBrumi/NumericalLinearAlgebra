@@ -41,7 +41,6 @@ Si prenem $ F = [u_1, ... , u_n ] $ com el sev generat per les columnes de A, ob
 $x^*$  minimitza la norma $ \| Ax - b \| \iff Ax^* = \pi_F\left(b\right)$, pel resultat anterior. Però a la vegada, $ Ax^* = \pi_F\left(b\right) \iff <u_i, Ax^*> \hspace{0.2cm} =  \hspace{0.2cm}<u_i,b> \forall i = 1\div n$ (caracterització coneguda de la projecció ortogonal). Per últim, $$  <u_i, Ax^*> \hspace{0.2cm} =  \hspace{0.2cm}<u_i,b> \forall i = 1\div n \iff A^\top Ax^*= A^\top b $$
 
 
-<<<<<<< HEAD
 \textbf{Conclusió}: les solucions del sistema $  A^\top Ax= A^\top b $ minimitzen la norma $ \| Ax - b \|. \hfill \square$ \newline
 
 Aleshores, si volem trobar un polinomi de grau $m$ que aproximi  uns vectors de punts $ x = \left(x_0,...,x_n\right) $ i $y = \left(y_0...,y_n\right)$, estem buscant un polinomi $a_0x^m+a_1x^{m-1}+...+a_{m-1}x^1+a_{m}$ que satisfaci:
@@ -81,20 +80,13 @@ y_{n}  \\
 $$
 
 Com, en general, $m < n$, no hi ha solució, però gràcies als apartats anteriors sabem que el polinomi $a_0^*x^m+a_1^*x^{m-1}+...+a_{m-1}^*x^1+a_{m}^*$ obtingut com a solució de les equacions normals és el que minimitza la norma $ \| Ax - b \|$.
-=======
-\textbf{Conclusió}: les solucions del sistema $  A^\top Ax= A^\top b $ minimitzen la norma $ \| Ax - b \|. \hfill \square$
->>>>>>> a9a7a1ff7a1a3a5602840584e810db5b67362c06
 
 \section{Justificació del mètode}
 A continuació justificarem el mètode utilitzat per trobar les solucions de les equacions normals i l'explicarem breument.
 
-<<<<<<< HEAD
 En aquesta pràctica hem utilitzat els mètodes d'ortogonalització, que aconsegueixen la reducció a forma triangular mitjançant l'ús de matrius ortogonals. Aquests mètodes estan basats en la descomposició $QR$ de matrius. Hem triat aquests mètodes perquè respecte d'altres, com Cholesky (si la matriu A és simètrica) o $LU$, presenta certs avatatges. Per una banda, en fer Cholesky, s'haurien de resoldre dos sistemes lineals (a més d'altres càlculs anteriors), mentre que en fer $QR$ només hem de resoldre un sistema triangular superior. Per altra banda, en comparar la $QR$ amb la $LU$, la primera és molt més estable en quant als errors respecte la segona, tot i que és més ineficient pel que fa el temps computacional.
 
 Com en els mètodes gaussians, s'observen dues parts en el procés d'ortogonalització:
-=======
-En aquesta pràctica hem utilitzat els mètodes d'ortogonalització, que aconsegueixen la reducció a forma triangular mitjançant l'ús de matrius ortogonals. Aquests mètodes estan basats en la descomposició $QR$ de matrius. Com en els mètodes gaussians, s'observen dues parts en el procés d'ortogonalització:
->>>>>>> a9a7a1ff7a1a3a5602840584e810db5b67362c06
 
 \begin{itemize}
   \item En la primera, es factoritza A en la forma:

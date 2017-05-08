@@ -42,6 +42,8 @@ N = Q'*Q - eye(m);
 disp(norm( N, Inf))
 
 %ara farem la substitucio enrera per resoldre el sistema R*coeff = Q'*y (equivalent a resoldre A'A*coeff = A'y )
+disp(size(Q))
+disp(size(y))
 b = (Q')*y;
 coeff = zeros(m,1);
 
@@ -54,7 +56,8 @@ for k = 1:m
   coeff(i) = (b(i) - acum )/R(i,i);
 endfor
 
-norm2_res = norm( AA*coeff - y, 2);
+
+norm2_res = norm( AA*coeff - y, 2)
 for i = 1:n
   plot(x(i),y(i), "color", 'r'); hold on
 endfor;
