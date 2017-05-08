@@ -1,23 +1,47 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
-\title{Pràctica 3 ALN: Mínims quadrats}
-\author{Camelia Brumar & Leonor Lamsdorff-Galagane}
+\title{Apt 1.3, Pràctica 3 ALN: Mínims quadrats}
+\author{Camelia Brumar \\ Leonor Lamsdorff-Galagane}
 \date{08 May 2017}
 
 \usepackage{natbib}
 \usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage[a4paper, total={6.5in, 10in}]{geometry}
 
 \begin{document}
 
 \maketitle
 
-\section{La demostració de que $p_{M}(x)$ és el polinomi “òptim”}
-Demostració que la projecció ortogonal és mínima (parèntesi en text)
-$$ \left(parentesi en una equacio \right) $$
-$$ \frac{numerador}{denominador} $$
-$$ \pi \tau \sum_1^n$$
+\section{Demostració que $p_{M}(x)$ és el polinomi “òptim”}
 
+Sigui $E$ un espai euclidià, i $F\subseteq E$ un sub-espai vectorial de dimensió finita. Procedirem a provar que, $\forall x \in E$ es té:
+$$ \| x - \pi_F\left(x\right) \| < \| x - u \|, \hspace{0.5cm} \forall u \in F, \hspace{0.5cm} u \ne \pi_F\left(x\right) $$
+
+És a dir, que la projecció ortogonal $\pi_F\left(x\right)$ és la millor aproximació de $x$ en $F$.
+
+$$ x - u = \left( x - \pi_F\left(x\right) \right) + \left( \pi_F\left(x\right) - u \right) $$
+
+Com els dos sumands de la dreta són ortogonals (el primer pertany a $F^\perp$ i el segon a $F$), s'aplica el Teorema de Pitàgores: 
+
+$$ \| x - u\|^2 = \| x - \pi_F\left(x\right) \|^2 + \| \pi_F\left(x\right) - u \|^2$$
+
+Posat que $ u \ne \pi_F\left(x\right) $  i  $\| \pi_F\left(x\right) - u \|^2 > 0$, es té:
+
+$$  \| x - u\|^2 > \| x - \pi_F\left(x\right) \|^2  $$
+
+Com la norma és un nombre real no negatiu, ja hem acabat.
+Una vegada provat aquest resultat, cal veure quina forma prenen els vectors $ x \in M_{n\times 1} \left( \mathbb{R} \right) $ que minimitzen la norma $ \| Ax - b \| $, on $A\in M_{m\times n} \left( \mathbb{R} \right) $ i $ b \in M_{m\times 1} \left( \mathbb{R} \right)$, i veurem que són  les solucions del sistema
+
+$$ A^\top A x = A^\top b $$
+
+Si prenem $ F = [u_1, ... , u_n ] $ com el sev generat per les columnes de A, observem que $ Ax $ són combinacions lineals de les columnes de A, és a dir, $\{  Ax \}_{x \in M_{n\times 1} \left( \mathbb{R} \right)}\in F$.
+
+$x^*$  minimitza la norma $ \| Ax - b \| \iff Ax^* = \pi_F\left(b\right)$, pel resultat anterior. Però a la vegada, $ Ax^* = \pi_F\left(b\right) \iff <u_i, Ax^*> \hspace{0.2cm} =  \hspace{0.2cm}<u_i,b> \forall i = 1\div n$ (caracterització coneguda de la projecció ortogonal). Per últim, $$  <u_i, Ax^*> \hspace{0.2cm} =  \hspace{0.2cm}<u_i,b> \forall i = 1\div n \iff A^\top Ax^*= A^\top b $$
+
+
+\textbf{Conclusió}: les solucions del sistema $  A^\top Ax= A^\top b $ minimitzen la norma $ \| Ax - b \|. \hfill \square$
 
 \section{Justificació del mètode}
 A continuació justificarem el mètode utilitzat per trobar les solucions de les equacions normals i l'explicarem breument.
@@ -38,14 +62,12 @@ En aquesta pràctica hem utilitzat els mètodes d'ortogonalització, que aconseg
   i finalment multipliquem per la inversa de $R^\top$ a les dues bandes de la igualtat, aconseguint el sistema
   $$Rx = Q^\top b \; .$$
 \end{itemize}
-
 Aquesta factorització l'hem realitzat amb el mètode d'ortogonalització mo\-di\-fi\-cat de Gram-Schmidt.\newline
-
 \newline
-\textbf{Mètode d'ortogonalització modificat de Gram-Schmidt} \newline
+\textbf{Mètode d'ortogonalització modificat de Gram-Schmidt}\newline
+\newline
 Començant amb $A_{1} = A$, una vegada coneguda
 $$A_{k} = \left(q_{1}\: \ldots{}\: q_{k-1}\: a_{k}^{(k)}\: \ldots{} \:a_{n}^{(k)} \right)$$
-
 amb columnes $q_{j}\;\left(j = 1 \div k - 1  \right)$ i $a_{s}^{(k)}\, \left(s = k \div n \right)$ complint amb les relacions d'ortogonalitat
 $$q_{j}^\top q_{l} = \delta_{jl},\; q_{j}^\top a_{s} = 0\, \left(j, l = 1 \div k-1,\, s = k \div n \right),$$
 es normalitza la $k$-èssima columna i s'ortogonalitzen, respecte a ella, totes les que la segueixen:
