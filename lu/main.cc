@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
        
     double x[n];   
     
-    int res = sistema( a, x, b, n, 0.00000000000001);
+    int res = sistema( a, x, b, n, 0.00000000001);
       // Abrimos el fichero para escribir los resultados
       fileOut.open(FOUT, ofstream::out);
       if (!fileOut.is_open()) {

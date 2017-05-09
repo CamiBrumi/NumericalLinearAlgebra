@@ -56,7 +56,7 @@ int lu(double **a, int n, int perm[], double tol) {
 	
 	int paritat = 1; // reflecteix la paritat
 	
-	for(int k = 0; k < n - 1; ++k) {
+	for(int k = 0; k < n; ++k) {
 		int max_pos = pivotatge_parcial(a, n, tol, k);
 		if (max_pos == -1) return 0; // matriu singular
 		if (max_pos != k ){
