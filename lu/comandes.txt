@@ -1,0 +1,32 @@
+ 
+Crear els fitxers .o, és a dir, *compilar* (el q normalment fem amb el Geany):
+g++ -c lu.cc sistema.cc resol.cc main.cc
+
+Ajuntar-ho tot en un .exe, és a dir, *linkar*:
+g++ -o program.exe  lu.o sistema.o resol.o main.o
+
+Executar una matriu
+./program.exe M00.DAT
+
+Executar moltes matrius:
+for i in {10..99}; do echo $i; ./program.exe M$i.DAT;done
+
+Per enganxar a la línia de comandes: Ctrl + Shift + V
+
+
+GIT:
+
+git clone https://Lenok25@bitbucket.org/Lenok25/aln.git
+git clone https://CamiBrumi@bitbucket.org/Lenok25/aln.git
+
+git add --all or git add -A or git add -A . //Stages All
+
+git add . //Stages New & Modified But Without Deleted
+
+git add -u //Stages Modified & Deleted But Without New
+
+git add *.cc //add all the cc files in current directory
+
+git commit -a //Means git add -u And git commit -m "message"
+
+Després de fer el commit, fem git push origin master.
