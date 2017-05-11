@@ -13,10 +13,10 @@ void interc(double **a, int b, int c) { // intercanvia dues files
 //p.e. perm = {2 0 1}, la fila 0 està a la posició 2
 
 
-void permuta(int perm[], int pos1, int pos2){ //intercanvia dins el vector perm 
+void permuta(int perm[], int pos1, int pos2){ //intercanvia dins el vector perm
 	int x = perm[pos1];
 	perm[pos1] = perm[pos2];
-	perm[pos2] = x;	
+	perm[pos2] = x;
 }
 
 int pivotatge_parcial(double **a, int n, double tol, const int k) {
@@ -30,8 +30,8 @@ int pivotatge_parcial(double **a, int n, double tol, const int k) {
             if (fabs(max_fila) < tol) return -1;
             maxs_fila_i[i - k] = max_fila;
 	}
-	
-	
+
+
     maxs_fila_i[0] = fabs(a[k][k])/maxs_fila_i[0];
 	double max_col = maxs_fila_i[0];
     int max_pos = k;
@@ -39,31 +39,31 @@ int pivotatge_parcial(double **a, int n, double tol, const int k) {
         maxs_fila_i[i] = fabs(a[k + i][ k ])/maxs_fila_i[i]; //convertim el vector de maxims per la fila en vector de pivots divits per màxim de la seva fila
         if ( fabs(max_col - maxs_fila_i[i]) > tol and max_col < maxs_fila_i[i]) {
             max_col = maxs_fila_i[i];
-            max_pos = k + i;          
-        }        
+            max_pos = k + i;
+        }
     }
     if(fabs(a[max_pos][k]) < tol) return -1; // retornem -1 perquè la funcio pivotatge_parcial retorna la posició del pivot. La posició mai pot ser un nombre negatiu.
-	
-	return max_pos; 
+
+	return max_pos;
 	//ja hem trobat el màxim, retornem la seva fila, per tornar a la funció lu,
 	// que farà la permutació i modificació de perm[] adient
-	
+
 //POST: retorna -1 si el pivot és massa petit i podem considerar la matriu massa singular.
 //si no, retorna la fila on es troba el pivot més respecte la resta de la seva fila.
 }
 
 int lu(double **a, int n, int perm[], double tol) {
-	
+
 	int paritat = 1; // reflecteix la paritat
-	
+
 	for(int k = 0; k < n; ++k) {
 		int max_pos = pivotatge_parcial(a, n, tol, k);
 		if (max_pos == -1) return 0; // matriu singular
 		if (max_pos != k ){
 			interc(a, max_pos, k); //canvia les files
 			permuta(perm, k, max_pos); // indica al vector de permutacions que s'han canviat les files.
-			paritat *= -1;		
-		}		
+			paritat *= -1;
+		}
 
 		for(int i = k + 1; i < n; ++i) {
 			double m = a[i][k]/a[k][k]; // m = m[i][k]
@@ -73,5 +73,5 @@ int lu(double **a, int n, int perm[], double tol) {
             a[i][k] = m;
 		}
 	}
-	return paritat; 
+	return paritat;
 }
