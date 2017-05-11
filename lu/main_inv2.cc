@@ -69,6 +69,8 @@ int main(int argc, char *argv[]) {
     fileIn.close(); // Un com llegit i assignades les components,
 
                 // tanquem el fitxer.
+    cout << "La norma-1 de la matriu és: " << norma_1( a, n) << endl;
+    cout << "La norma-inf de la matriu és: " << norma_inf( a, n) << endl;
 
 
 

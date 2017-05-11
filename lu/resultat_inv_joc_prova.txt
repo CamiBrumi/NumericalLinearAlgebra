@@ -1,0 +1,6 @@
+La matriu hauria de ser
+
+
+-24  18  5
+ 20 -15 -4
+ -5   4  1
