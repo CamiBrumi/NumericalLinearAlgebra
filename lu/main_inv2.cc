@@ -71,9 +71,7 @@ int main(int argc, char *argv[]) {
                 // tanquem el fitxer.
     cout << "La norma-1 de la matriu és: " << norma_1( a, n) << endl;
     cout << "La norma-inf de la matriu és: " << norma_inf( a, n) << endl;
-
-
-
+    
     int res = inversa( a, inva, n, 0.00000000001);
       // Abrimos el fichero para escribir los resultados
       fileOut.open(FOUT, ofstream::out);

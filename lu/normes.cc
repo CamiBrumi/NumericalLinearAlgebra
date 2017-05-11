@@ -24,3 +24,4 @@ double norma_inf(double **a, int n) {
   }
   return max_per_files;
 }
+
