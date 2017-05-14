@@ -1,0 +1,1 @@
+%per a fer input ràpid d'una matriuA = [1:4; 6:9]; %és equvalent a :A = [1 2 3 4; 6 7 8 9];%crear un vector de nombres aleatoris # entre 0 i 1x = rand(1, 3);

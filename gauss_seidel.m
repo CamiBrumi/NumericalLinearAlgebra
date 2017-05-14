@@ -21,6 +21,10 @@ if (normB>=1)
   return; 
   endif;
 
+% Calculem la velocitat de convergència del mètode de jacobi
+v_conveg = -log(max(abs(eig(BJ)))); 
+
+
 CGS = IDL*b;
 
 iter=0;

@@ -1,6 +1,6 @@
  % Jacobi
  function [x,iter]=jacobi(A,b,x)
- format long ;	
+ format long ;
 tol=10^-12;
 maxit=100;
 D=diag(diag(A));
@@ -12,6 +12,8 @@ if (normB>=1)
   disp('Radi espectral de B mes gran o igual que 1. Jacobi no convergeix')
   return; 
   endif;
+% Calculem la velocitat de convergència del mètode de jacobi
+% -log(max(abs(eig(BJ)))) s'ha de verificar als apunts
 cJ=inv(D)*b;
 iter=0;
 errabs=1;

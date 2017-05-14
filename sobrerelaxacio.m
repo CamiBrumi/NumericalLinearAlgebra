@@ -1,4 +1,4 @@
-% Sobrerelacacio
+% Sobrerelaxacio
  function [x,iter]=sobrerelaxacio(A,b,x,w)
  format long ;	
 tol=10^-12;
@@ -22,6 +22,8 @@ if (normB>=1)
   return; 
   endif;
 
+% Calculem la velocitat de convergència del mètode de jacobi
+% -log(max(abs(eig(BJ)))) s'ha de verificar als apunts
 CSR = w.*INVDWL*b;
 
 iter=0;
