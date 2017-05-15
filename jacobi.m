@@ -13,7 +13,7 @@ if (normB>=1)
   return; 
   endif;
 % Calculem la velocitat de convergència del mètode de jacobi
-% -log(max(abs(eig(BJ)))) s'ha de verificar als apunts
+v_conveg = -log(max(abs(eig(BJ))))
 cJ=inv(D)*b;
 iter=0;
 errabs=1;

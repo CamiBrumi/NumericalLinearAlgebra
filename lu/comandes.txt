@@ -30,3 +30,9 @@ git add *.cc //add all the cc files in current directory
 git commit -a //Means git add -u And git commit -m "message"
 
 Després de fer el commit, fem git push origin master.
+
+
+--------------------------------------
+Afegit per cami:
+inversa:
+g++ -Wall -o program.exe lu.cc resol.cc sistema_1lu.cc main_inv2.cc det.cc inversa.cc normes.cc
